@@ -45,7 +45,7 @@ async function removeFromQueue(id) {
 }
 
 // Replace with your deployed Apps Script web app URL
-const WEB_APP_URL = localStorage.getItem('SW_WEBAPP_URL') || '';
+const WEB_APP_URL = localStorage.getItem('https://script.google.com/macros/s/AKfycbxcvZgS6kqnvZNsF7wBWjDhG4ikQj67HP0Fv5h22NDiM5ZYcuBUoSLiQb-VuRuLOPSc/exec') || '';
 
 async function trySync() {
   if (!navigator.onLine || !WEB_APP_URL) return;
