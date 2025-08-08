@@ -11,7 +11,7 @@ A tiny phone-friendly form that collects **Name**, **Barangay**, **Phone Number*
 ## Setup (10–15 min)
 1. **Create a Google Sheet** in your Google Drive. Copy its ID from the URL (the long string between `/d/` and `/edit`).  
 2. **Open Google Apps Script** (script.new), paste the contents of `apps-script/Code.gs`.  
-3. Replace `PUT_YOUR_SHEET_ID_HERE` with your actual Sheet ID.  
+3. Replace `1gI5oTpw9e0XHw5SqlaQEcyzW3EFR1fPGHOc673K2pZY` with your actual Sheet ID.  
 4. **Deploy** → *New deployment* → *Web app*  
    - *Execute as:* Me  
    - *Who has access:* Anyone with the link  
