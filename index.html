@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b6efd"/>
+  <title>Still Water CRm system</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Register service worker ASAP
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(console.error);
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Still Water CRm system</h1>
+    <p class="sub">Offline-first field intake form</p>
+  </header>
+
+  <main>
+    <form id="crmForm" autocomplete="on">
+      <label>
+        <span>Name</span>
+        <input type="text" id="name" name="name" placeholder="Full name" required />
+      </label>
+
+      <label>
+        <span>Barangay</span>
+        <input type="text" id="barangay" name="barangay" placeholder="Barangay" required />
+      </label>
+
+      <label>
+        <span>Phone Number</span>
+        <input type="tel" id="phone" name="phone" placeholder="+63 9XX XXX XXXX" pattern="^[+\d][\d\s()-]{6,}$" required />
+      </label>
+
+      <div class="geo">
+        <button id="locBtn" type="button">Get Location</button>
+        <div id="geoStatus">Location not captured yet.</div>
+      </div>
+
+      <input type="hidden" id="lat" name="lat" />
+      <input type="hidden" id="lng" name="lng" />
+      <input type="hidden" id="accuracy" name="accuracy" />
+
+      <button class="primary" type="submit">Submit</button>
+      <div id="note" class="note"></div>
+    </form>
+  </main>
+
+  <footer>
+    <small>Works offline. Submissions sync when online.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
