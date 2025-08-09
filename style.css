@@ -1,0 +1,26 @@
+:root { --bg:#0b1220; --card:#0f172a; --ink:#e2e8f0; --muted:#94a3b8; --brand:#0ea5e9; --ok:#22c55e; --warn:#f59e0b; --err:#ef4444; }
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{ margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--ink); }
+.appbar{ position:sticky; top:0; display:flex; align-items:center; gap:.5rem; padding:.75rem 1rem; background:#0c1b2e; border-bottom:1px solid #0b2540; z-index:10; }
+.brand{ font-weight:700; letter-spacing:.2px; }
+.icon-btn{ font-size:1.1rem; border:1px solid #1f2a44; background:#0f2036; color:var(--ink); padding:.35rem .6rem; border-radius:.75rem; }
+.container{ max-width:720px; margin:0 auto; padding:1rem; }
+.card{ background:var(--card); border:1px solid #1f2a44; border-radius:1rem; padding:1rem; margin:1rem 0; box-shadow:0 4px 24px rgba(0,0,0,.25); }
+label{ display:block; margin:.75rem 0; font-size:.95rem; }
+input{ width:100%; padding:.9rem 1rem; margin-top:.35rem; border-radius:.75rem; border:1px solid #1f2a44; background:#0c1b2e; color:var(--ink); }
+.primary{ background:var(--brand); color:#001219; border:none; padding:.8rem 1rem; border-radius:.9rem; font-weight:700; }
+.secondary{ background:#0c1b2e; color:var(--ink); border:1px solid #1f2a44; padding:.7rem 1rem; border-radius:.8rem; }
+.big{ width:100%; font-size:1.05rem; }
+.row{ display:flex; align-items:center; gap:.75rem; }
+.spacer{ flex:1; }
+.muted{ color:var(--muted); }
+.tiny{ font-size:.85rem; }
+.gps-row{ display:flex; align-items:center; gap:.75rem; }
+.status{ position:sticky; top:3.4rem; margin:0 0 1rem; padding:.6rem .9rem; border-radius:.75rem; border:1px solid #1f2a44; background:#0c1b2e; }
+.status.success{ border-color:#134e2a; background:#0b2a17; }
+.status.warn{ border-color:#5a3b07; background:#2a1a07; }
+.status.error{ border-color:#5b1f1f; background:#2a0f0f; }
+.sheet{ width:min(640px, 92vw); background:var(--card); border:1px solid #1f2a44; border-radius:1rem; padding:1rem; }
+menu{ display:flex; align-items:center; gap:.5rem; margin:1rem 0 0; padding:0; }
+button.danger{ background:#2a0f0f; color:#fecaca; border:1px solid #5b1f1f; }

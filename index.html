@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>Field Data Collector</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="appbar">
+    <div class="brand">🏷️ Field Data</div>
+    <button id="openSettings" class="icon-btn" aria-label="Open settings">⚙️</button>
+  </header>
+
+  <main class="container">
+    <section class="status" id="statusBar" hidden></section>
+
+    <form id="residentForm" class="card" autocomplete="off">
+      <h1>New Entry</h1>
+      <label>Full Name<input id="name" name="name" required maxlength="120" placeholder="Juan Dela Cruz" /></label>
+      <label>Barangay<input id="barangay" name="barangay" required maxlength="120" placeholder="Barangay 123" /></label>
+      <label>Phone Number<input id="phone" name="phone" inputmode="tel" pattern="[+0-9\-() ]{7,20}" placeholder="09xx…" /></label>
+
+      <div class="gps-row">
+        <button type="button" id="gpsBtn" class="secondary">📍 Capture GPS</button>
+        <div id="gpsStat" class="muted">Not captured</div>
+      </div>
+
+      <button type="submit" class="primary big">Save Entry</button>
+    </form>
+
+    <section class="card">
+      <h2>Sync</h2>
+      <div class="row">
+        <div id="queueCount" class="muted">Queue: 0</div>
+        <div class="spacer"></div>
+        <button id="syncBtn" class="primary">⤴️ Sync Now</button>
+      </div>
+      <p class="tiny muted">App will auto-sync when internet is available.</p>
+    </section>
+  </main>
+
+  <!-- Settings Drawer -->
+  <dialog id="settingsDialog">
+    <form method="dialog" class="sheet">
+      <header>
+        <h3>Settings</h3>
+      </header>
+      <label>Apps Script Endpoint URL
+        <input id="endpointInput" placeholder="https://script.google.com/macros/s/…/exec" />
+      </label>
+      <label>API Key (optional)
+        <input id="apiKeyInput" placeholder="your-shared-secret" />
+      </label>
+      <p class="tiny muted">You can also set these via URL, e.g. <code>?endpoint=…&key=…</code>. Saved locally.</p>
+      <menu>
+        <button id="clearQueueBtn" class="danger">Clear Local Queue</button>
+        <div class="spacer"></div>
+        <button value="cancel">Close</button>
+        <button id="saveSettingsBtn" class="primary" value="default">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="./app.js" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(console.error);
+      });
+    }
+  </script>
+</body>
+</html>
